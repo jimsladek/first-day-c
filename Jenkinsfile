@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Download') {
             steps {
-                gcc HelloWorld.c > generatedFile.txt'
+                gcc HelloWorld.c > generatedFile.txt
             }
         }
     }
