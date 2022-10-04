@@ -14,5 +14,4 @@ pipeline {
             archiveArtifacts artifacts: 'generatedFile.txt', onlyIfSuccessful: true
         }
     }
-  }
 }
