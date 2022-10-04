@@ -9,7 +9,10 @@ pipeline {
             }
         }
 
-        stage "Archive build output"
-           archiveArtifacts artifacts: 'output/*.txt', excludes: 'output/*.md'
+    post {
+        always {
+            archiveArtifacts artifacts: 'generatedFile.txt', onlyIfSuccessful: true
+        }
     }
+  }
 }
