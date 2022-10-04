@@ -1,11 +1,10 @@
 pipeline {
     agent any
-
+    
     stages {
-        stage('Test') {
+        stage('Download') {
             steps {
-                gcc HelloWorld.c
-                echo ./hello
+                gcc HelloWorld.c > generatedFile.txt'
             }
         }
     }
@@ -13,5 +12,5 @@ pipeline {
         always {
             archiveArtifacts artifacts: 'generatedFile.txt', onlyIfSuccessful: true
         }
-     }
+    }
 }
