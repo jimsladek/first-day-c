@@ -7,6 +7,7 @@ pipeline {
                 sh 'make build '
             }
         }
+    }
 
     post {
         always {
