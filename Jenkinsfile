@@ -1,16 +1,19 @@
-pipeline {
-    agent any
-    
-    stages {
-        stage('Download') {
-            steps {
-                make > generatedFile.txt
+ stages {
+        stage('Build') { 
+            steps { 
+                sh 'make' 
             }
         }
-    }
-    post {
-        always {
-            archiveArtifacts artifacts: 'generatedFile.txt', onlyIfSuccessful: true
+        stage('Test'){
+            steps {
+                sh 'make check'
+                junit 'reports/**/*.xml' 
+            }
+        }
+        stage('Deploy') {
+            steps {
+                sh 'make publish'
+            }
         }
     }
 }
