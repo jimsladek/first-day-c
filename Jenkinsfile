@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Test') {
             steps {
-                gcc -o hello HelloWorld.c
+                gcc HelloWorld.c
                 echo ./hello
             }
         }
